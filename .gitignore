@@ -11,7 +11,7 @@ README.html
 *.cab
 mvnw
 mvnw.cmd
-
+com/
 out/
 .gradle/
 
