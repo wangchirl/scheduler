@@ -1,0 +1,39 @@
+server:
+  port: 50084
+  servlet:
+    context-path: /shadow
+
+
+# Xxl Job
+xxl:
+  job:
+    adminAddresses: http://127.0.0.1:50084/shadow
+    accessToken: 111111
+    executor:
+      appname: xxl
+      address:
+      ip:
+      port: 50081
+      logpath: /xxl/log
+      logretentiondays: 1
+
+# Quartz Job
+quartz:
+  job:
+    test:
+      cron: 0 1 * * * ?
+
+# Spring Job
+spring:
+  job:
+    test:
+      cron: 0 1 * * * ?
+
+
+# Simple
+simple:
+  job:
+    test1:
+      cron: 0 1 * * * ?
+    test2:
+      cron: 0 1 * * * ?
