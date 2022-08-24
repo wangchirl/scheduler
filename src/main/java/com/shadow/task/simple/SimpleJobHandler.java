@@ -1,5 +1,6 @@
 package com.shadow.task.simple;
 
+import com.alibaba.fastjson.JSON;
 import com.shadow.supports.framework.ICronTriggerTask;
 import com.shadow.supports.framework.support.JobHandlerSupport;
 import com.shadow.supports.framework.support.TriggerTaskHelper;
@@ -14,14 +15,14 @@ public class SimpleJobHandler extends JobHandlerSupport {
     @Bean(value = JobNamingConsts.SIMPLE_TEST1)
     public ICronTriggerTask<Integer> test() {
         return new TriggerTaskHelper<Integer>().generateTask(ScheduleTaskInfoEnum.TEST_NORMAL_TASK,(p) -> {
-            return getScheduleService().test(p);
+            return getScheduleService().test(JSON.toJSONString(p));
         });
     }
 
     @Bean(value = JobNamingConsts.SIMPLE_TEST2)
     public ICronTriggerTask<Integer> testDis() {
         return new TriggerTaskHelper<Integer>().generateTask(ScheduleTaskInfoEnum.TEST_DISTRIBUTION_TASK,(p) -> {
-            return getScheduleService().testDis(p);
+            return getScheduleService().testDis(JSON.toJSONString(p));
         });
     }
 

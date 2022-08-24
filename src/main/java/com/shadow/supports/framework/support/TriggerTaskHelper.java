@@ -58,7 +58,7 @@ public class TriggerTaskHelper<T> {
     /**
      * 支持有参，有返回值任务
      */
-    public ICronTriggerTask<T> generateTask(ScheduleTaskInfoEnum scheduleTaskInfoEnum, Function<String, T> function) {
+    public ICronTriggerTask<T> generateTask(ScheduleTaskInfoEnum scheduleTaskInfoEnum, Function<Object, T> function) {
         return new CronTriggerSupport<T>() {
             @Override
             public String type() {

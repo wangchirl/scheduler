@@ -27,7 +27,7 @@ public interface ScheduleService {
      * lambda 表达式支持
      * 函数 = 支持参数，支持返回值
      */
-    <T> T function(Function<String, T> function);
+    <T> T function(Function<Object, T> function);
 
 
 
