@@ -16,8 +16,8 @@ import java.util.function.Supplier;
 public class ScheduleServiceImpl implements ScheduleService {
 
     @Override
-    public void consumer(Consumer<String> consumer) {
-        String params = ScheduleService.JOB_PARAMETERS_THREAD_LOCAL.get();
+    public void consumer(Consumer<Object> consumer) {
+        Object params = ScheduleService.JOB_PARAMETERS_THREAD_LOCAL.get();
         consumer.accept(params);
     }
 

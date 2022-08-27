@@ -15,7 +15,7 @@ public interface ScheduleService {
      * lambda 表达式支持
      * 消费者 = 支持参数，无返回值
      */
-    void consumer(Consumer<String> consumer);
+    void consumer(Consumer<Object> consumer);
 
     /**
      * lambda 表达式支持

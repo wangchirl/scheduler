@@ -13,7 +13,7 @@ public class TriggerTaskHelper<T> {
     /**
      * 支持无参/有参，无返回值任务
      */
-    public ICronTriggerTask<T> generateTask(ScheduleTaskInfoEnum scheduleTaskInfoEnum, Consumer<String> consumer) {
+    public ICronTriggerTask<T> generateTask(ScheduleTaskInfoEnum scheduleTaskInfoEnum, Consumer<Object> consumer) {
         return new CronTriggerSupport<T>() {
             @Override
             public String type() {
