@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.springframework.stereotype.Service;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -36,14 +38,14 @@ public class ScheduleServiceImpl implements ScheduleService {
     @SimpleJob(value = JobNamingConsts.SIMPLE_TEST1)
     public Integer test(String params) {
         log.info("simple job test1 invoke : PARAMS = {} ", JSON.toJSON(params));
-        return 1024;
+        return ThreadLocalRandom.current().nextInt();
     }
 
     @Override
     @SimpleJob(value = JobNamingConsts.SIMPLE_TEST2)
-    @SchedulerLock(name = JobNamingConsts.SIMPLE_TEST2, lockAtLeastFor = "30000")
-    public Integer testDis(String params) {
+//    @SchedulerLock(name = JobNamingConsts.SIMPLE_TEST2, lockAtLeastFor = "30000")
+    public String testDis(String params) {
         log.info("simple job test2 invoke : PARAMS = {} ", JSON.toJSON(params));
-        return 1024;
+        return ThreadLocalRandom.current().nextInt() + " Hello World ! ";
     }
 }

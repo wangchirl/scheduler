@@ -33,5 +33,5 @@ public interface ScheduleService {
 
     Integer test(String params);
 
-    Integer testDis(String params);
+    String testDis(String params);
 }

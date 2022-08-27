@@ -20,8 +20,8 @@ public class SimpleJobHandler extends JobHandlerSupport {
     }
 
     @Bean(value = JobNamingConsts.SIMPLE_TEST2)
-    public ICronTriggerTask<Integer> testDis() {
-        return new TriggerTaskHelper<Integer>().generateTask(ScheduleTaskInfoEnum.TEST_DISTRIBUTION_TASK,(p) -> {
+    public ICronTriggerTask<String> testDis() {
+        return new TriggerTaskHelper<String>().generateTask(ScheduleTaskInfoEnum.TEST_DISTRIBUTION_TASK,(p) -> {
             return getScheduleService().testDis(JSON.toJSONString(p));
         });
     }
