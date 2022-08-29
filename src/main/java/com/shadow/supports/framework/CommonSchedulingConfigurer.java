@@ -118,7 +118,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param triggerTask task
      * @return boolean
      */
-    public boolean add(@NotNull ICronTriggerTask<T> triggerTask) {
+    public Boolean add(@NotNull ICronTriggerTask<T> triggerTask) {
         String type = triggerTask.type(), cron = triggerTask.getTrigger().getExpression();
         if (futureMap.containsKey(type)) {
             log.warn("task type named {} already exists ", type);
@@ -138,7 +138,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param cron cron expression
      * @return boolean
      */
-    public boolean update(@NotNull final String type, @NotNull final String cron) {
+    public Boolean update(@NotNull final String type, @NotNull final String cron) {
         if (!futureMap.containsKey(type)) {
             log.warn("task type named {} doesn't exist", type);
             return false;
@@ -158,7 +158,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param type task type
      * @return boolean
      */
-    public boolean cancel(@NotNull String type) {
+    public Boolean cancel(@NotNull String type) {
         if (!futureMap.containsKey(type)) {
             log.warn("task type named {} doesn't exists", type);
             return false;
@@ -178,7 +178,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param type task type
      * @return boolean
      */
-    public boolean restart(@NotNull String type) {
+    public Boolean restart(@NotNull String type) {
         ICronTriggerTask<T> triggerTask = taskMap.get(type);
         if (null == triggerTask) {
             log.warn("task type named {} doesn't exists ", type);
