@@ -9,7 +9,7 @@ public interface ScheduleService {
     /**
      * 请求参数
      */
-    ThreadLocal<String> JOB_PARAMETERS_THREAD_LOCAL = new ThreadLocal<>();
+    ThreadLocal<Object> JOB_PARAMETERS_THREAD_LOCAL = new ThreadLocal<>();
 
     /**
      * lambda 表达式支持
