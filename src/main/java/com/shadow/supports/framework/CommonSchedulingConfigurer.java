@@ -3,7 +3,6 @@ package com.shadow.supports.framework;
 import com.shadow.supports.helper.ScheduleInfoVO;
 import com.shadow.supports.helper.ScheduleTaskInfoEnum;
 import com.shadow.supports.helper.ScheduleVO;
-import com.sun.istack.internal.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
@@ -118,7 +117,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param triggerTask task
      * @return boolean
      */
-    public Boolean add(@NotNull ICronTriggerTask<T> triggerTask) {
+    public Boolean add(ICronTriggerTask<T> triggerTask) {
         String type = triggerTask.type(), cron = triggerTask.getTrigger().getExpression();
         if (futureMap.containsKey(type)) {
             log.warn("task type named {} already exists ", type);
@@ -138,7 +137,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param cron cron expression
      * @return boolean
      */
-    public Boolean update(@NotNull final String type, @NotNull final String cron) {
+    public Boolean update(final String type, final String cron) {
         if (!futureMap.containsKey(type)) {
             log.warn("task type named {} doesn't exist", type);
             return false;
@@ -158,7 +157,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param type task type
      * @return boolean
      */
-    public Boolean cancel(@NotNull String type) {
+    public Boolean cancel(String type) {
         if (!futureMap.containsKey(type)) {
             log.warn("task type named {} doesn't exists", type);
             return false;
@@ -178,7 +177,7 @@ public class CommonSchedulingConfigurer<T> implements SchedulingConfigurer, Appl
      * @param type task type
      * @return boolean
      */
-    public Boolean restart(@NotNull String type) {
+    public Boolean restart(String type) {
         ICronTriggerTask<T> triggerTask = taskMap.get(type);
         if (null == triggerTask) {
             log.warn("task type named {} doesn't exists ", type);
